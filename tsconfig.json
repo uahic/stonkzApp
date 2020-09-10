@@ -1,14 +1,16 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "module": "es2020",
+    "allowJs": true,
+    "module": "esnext",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es5",
+    "importHelpers": true,
+    "target": "esnext",
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -28,5 +30,5 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
 }

@@ -1,0 +1,7 @@
+<nav mat-tab-nav-bar backgroundColor="primary">
+  <a mat-tab-link *ngFor="let l of navLinks" [routerLink]="rootUrl + l.link"
+    [active]="this.router.url === rootUrl + l.link">
+    {{l.name}}
+  </a>
+  <a mat-tab-link disabled>Disabled link</a>
+</nav>

@@ -1,15 +1,26 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { PageNotFoundComponent } from './shared/components';
+import { RouterModule, Routes } from '@angular/router';
 
-import { HomeRoutingModule } from './home/home-routing.module';
-import { DetailRoutingModule } from './detail/detail-routing.module';
+import { PageNotFoundComponent } from './shared/components';
+import { DefaultNavigationComponent } from './layout/default-navigation/default-navigation.component';
+import { DashboardComponent } from './core/pages/dashboard/dashboard.component';
+
+// import { DetailRoutingModule } from './detail/detail-routing.module';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    component: DefaultNavigationComponent,
+    children: [
+      {
+        path: '',
+        component: DashboardComponent
+      },
+      {
+        path: 'stocks',
+        loadChildren: () => import('./modules/stocks/stocks.module').then(m => m.StocksModule)
+      }
+    ]
   },
   {
     path: '**',
@@ -20,8 +31,6 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes),
-    HomeRoutingModule,
-    DetailRoutingModule
   ],
   exports: [RouterModule]
 })

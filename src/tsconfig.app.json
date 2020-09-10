@@ -2,13 +2,14 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/app",
-    "module": "es2015",
+    "module": "esnext",
     "baseUrl": "",
-    "types": []
+    "types": ["highcharts"]
   },
   "include": [
     "main.ts",
-    "polyfill.ts"
+    "polyfill.ts",
+    "src/**/*.ts"
   ],
   "exclude": [
     "**/*.spec.ts"
@@ -16,6 +17,7 @@
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true,
-    "preserveWhitespaces": true
+    "preserveWhitespaces": true,
+    "enableIvy": true
   }
 }

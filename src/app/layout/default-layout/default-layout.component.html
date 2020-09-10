@@ -1,0 +1,31 @@
+<!-- <app-tabs-nav></app-tabs-nav> -->
+<app-top-bar></app-top-bar>
+<mat-drawer-container>
+  <mat-drawer mode="side" opened>
+   <mat-nav-list>
+    Profile
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>Pages</h2>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/">Dashboard</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/stocks">Stocks</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/metals">Metals</a>
+
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>Tools</h2>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
+      <mat-icon>import_contacts</mat-icon>
+      Contacts
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
+      <mat-icon>contact_phone</mat-icon>
+      Leads
+    </a>
+   </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
