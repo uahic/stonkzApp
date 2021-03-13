@@ -26,6 +26,9 @@ import { StocksModule } from './modules/stocks/stocks.module';
 
 import { HotkeysModule } from '@ngneat/hotkeys';
 import { AppConfigService } from './core/services/app-config/app-config.service';
+import { SearchModule } from './modules/search/search.module';
+import { DataproviderModule } from './modules/dataprovider/dataprovider.module';
+
 
 // NG Translate
 // import { DetailModule } from './detail/detail.module';
@@ -67,7 +70,9 @@ const appInitializerFn = (appConfig: AppConfigService) => {
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
+    DataproviderModule,
     HotkeysModule,
+    SearchModule,
   ],
   providers: [
     {

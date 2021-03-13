@@ -1,4 +1,9 @@
+export interface APIAccessData {
+  label: string;
+  key: string;
+}
 export interface AppConfig {
-  stockAPI: string;
-  stockAPIKey: string;
+  apis: {
+    [key: string]: APIAccessData;
+  }
 }

@@ -58,6 +58,7 @@
     "@angular/router": "10.1.0",
     "@ngx-translate/core": "13.0.0",
     "@ngx-translate/http-loader": "6.0.0",
+    "@stoqey/finnhub": "0.2.4",
     "@types/highcharts": "7.0.0",
     "@types/jasmine": "3.5.12",
     "@types/jasminewd2": "2.0.8",
@@ -102,10 +103,11 @@
     "@angular/flex-layout": "10.0.0-beta.32",
     "@angular/forms": "^10.0.0 || ^11.0.0-0",
     "@angular/material": "10.2.0",
-    "@ngneat/hotkeys": "1.1.1",
     "@ngneat/until-destroy": "8.0.2",
+    "finnhub": "1.2.1",
     "highcharts": "8.2.0",
-    "highcharts-angular": "2.8.0",
-    "material-design-icons": "3.0.1"
+    "material-design-icons": "3.0.1",
+    "moment": "2.27.0",
+    "momentjs": "2.0.0"
   }
 }

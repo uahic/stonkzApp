@@ -6,9 +6,12 @@
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
+    "strict": false,
+    "strictTemplates": true,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
     "importHelpers": true,
     "target": "esnext",
     "typeRoots": [

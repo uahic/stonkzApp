@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FinnhubAPIService } from './finnhub-api.service';
+import { SearchEngineService } from './search-engine.service';
 
-describe('FinnhubAPIService', () => {
-  let service: FinnhubAPIService;
+describe('SearchEngineService', () => {
+  let service: SearchEngineService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(FinnhubAPIService);
+    service = TestBed.inject(SearchEngineService);
   });
 
   it('should be created', () => {

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { ElectronService } from '../../services';
 
 @Component({
   selector: 'dashboard',
@@ -29,5 +30,7 @@ export class DashboardComponent {
     })
   );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver, private electron: ElectronService) {
+    // this.electron.writeJson('meh.json', { wololo: 3 }).;
+  }
 }
