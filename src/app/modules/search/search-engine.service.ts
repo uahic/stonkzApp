@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
 import { forkJoin, Observable } from 'rxjs';
-import { SearchGroupResult } from './search-result.model';
+import { map } from 'rxjs/operators';
+import { SearchResult } from './search-result.model';
 
-export enum SearchFilter {
-  ALL,
+export enum SearchType {
   STOCKS,
   COMMANDS,
   COMMODITIES,
   CRYPTO
 }
 
-export type SearchCallback = (query: string, filter: SearchFilter) => Observable<SearchGroupResult>;
+export type SearchFilter = SearchType[];
+
+export type SearchCallback = (query: string, filter: SearchFilter) => Observable<SearchResult[]>;
 
 @Injectable({
   providedIn: 'root'
@@ -21,12 +23,14 @@ export class SearchEngineService {
 
   constructor() { }
 
-  search(query: string, filter: SearchFilter): Observable<SearchGroupResult[]> {
-    const callbacks: Observable<SearchGroupResult>[] = [];
+  search(query: string, filter: SearchFilter): Observable<SearchResult[]> {
+    const callbacks: Observable<SearchResult[]>[] = [];
     this.providers.forEach(callback => {
       callbacks.push(callback(query, filter));
     });
-    return forkJoin(callbacks);
+    return forkJoin(callbacks).pipe(
+      map(results => [].concat(...results))
+    );
   }
 
   registerSource(id: string, queryCallback: SearchCallback): void {

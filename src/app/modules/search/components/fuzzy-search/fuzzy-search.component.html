@@ -1,13 +1,15 @@
 <div class="fuzzy-search-panel" cdkTrapFocus>
   <mat-form-field>
-    <input #input [formControl]="autoCompleteControl" type="text" placeholder="Pick one" aria-label="Number" matInput
+    <input #input [formControl]="autoCompleteControl" type="text" placeholder="Name, Symbol, ISIN, ..." aria-label="Number" matInput
       [matAutocomplete]="auto" #searchInput>
-    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-      <ng-container *ngFor="let group of (autoComplete$ | async)" ; let index=index>
-        <mat-option *ngFor="let item of group" [value]="item.">
-          {{groupResult.results}}
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="openSelection($event)">
+      <mat-optgroup *ngFor="let group of (autoComplete$ | async) | keyvalue ; let index=index" [label]="group.key">
+        <mat-option *ngFor="let item of group.value" (onSelectionChange)="openSelection(item)">
+          <img *ngIf="item.icon" class="flag-img" [src]="item.icon" height="25">
+          <div>{{item.description}}</div>
+          <div class="mat-caption">{{item.symbol}} <span *ngIf="item.exchangeRecord?.name"> {{item.exchangeRecord?.name}} </span></div>
         </mat-option>
-      </ng-container>
+      </mat-optgroup>
     </mat-autocomplete>
   </mat-form-field>
 </div>

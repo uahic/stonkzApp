@@ -5,7 +5,6 @@ import { ElectronService } from './core/services';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { HotkeysService } from '@ngneat/hotkeys';
 import { SearchOverlayService } from './modules/search/search-overlay.service';
-import { FinnhubService } from './modules/dataprovider/finnhub.service';
 
 
 @UntilDestroy()
@@ -19,8 +18,7 @@ export class AppComponent {
     private electronService: ElectronService,
     private translate: TranslateService,
     private hotkeys: HotkeysService,
-    private searchOverlay: SearchOverlayService,
-    private finnhub: FinnhubService
+    private searchOverlay: SearchOverlayService
   ) {
     this.translate.setDefaultLang('en');
 
@@ -32,7 +30,7 @@ export class AppComponent {
 
     this.hotkeys.addShortcut({ keys: 'meta.p' })
       .pipe(untilDestroyed(this))
-      .subscribe(e => {
+      .subscribe(() => {
         this.searchOverlay.showSearchBar();
       });
   }

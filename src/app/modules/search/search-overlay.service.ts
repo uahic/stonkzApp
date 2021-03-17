@@ -13,7 +13,7 @@ export class SearchOverlayService {
 
   constructor(private overlay: Overlay) { }
 
-  showSearchBar() {
+  showSearchBar(): void {
     if (!!this.overlayRef && this.overlayRef.hasAttached()) {
       return;
     }
@@ -27,7 +27,8 @@ export class SearchOverlayService {
       disposeOnNavigation: true,
     };
     const overlayRef = this.overlay.create(config);
-    overlayRef.attach(new ComponentPortal(FuzzySearchComponent));
+    const componentRef = overlayRef.attach(new ComponentPortal(FuzzySearchComponent));
+    componentRef.instance.overlayRef = overlayRef;
     overlayRef.backdropClick().pipe(take(1)).subscribe(_ => overlayRef.dispose());
 
   }
