@@ -56,6 +56,7 @@ const appInitializerFn = (appConfig: AppConfigService) => {
     AppRoutingModule,
     DefaultLayoutModule,
     StocksModule,
+    DataproviderModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

@@ -1,0 +1,9 @@
+<!-- <nav mat-tab-nav-bar>
+  <a mat-tab-link *ngFor="let interval of intervals | keyvalue" (click)="changeInterval(interval.key)"
+    [active]="activeInterval == interval.key">{{interval.value}}</a>
+</nav> -->
+<highcharts-chart [Highcharts]="Highcharts" [constructorType]="chartConstructor" [options]="chartOptions"
+  [callbackFunction]="chartCallback" [(update)]="updateFlag" [oneToOne]="oneToOneFlag"
+  [runOutsideAngular]="runOutsideAngularFlag" style="width: 100%; height: 400px; display: block;">
+
+</highcharts-chart>

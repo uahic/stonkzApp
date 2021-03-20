@@ -2,9 +2,8 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { SearchResult } from '../../search-result.model';
-import { debounceTime, filter, map, switchMap } from 'rxjs/operators';
+import { debounceTime, filter, map, switchMap, tap } from 'rxjs/operators';
 import { SearchEngineService, SearchFilter, SearchType } from '../../search-engine.service';
-import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { OverlayRef } from '@angular/cdk/overlay';
 
 @Component({
@@ -40,6 +39,7 @@ export class FuzzySearchComponent implements OnInit, AfterViewInit {
   }
 
   openSelection(selection: SearchResult): void {
+    console.log('selected', selection)
     selection.command();
     this.overlayRef.dispose();
   }

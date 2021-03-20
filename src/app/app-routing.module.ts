@@ -17,12 +17,12 @@ const routes: Routes = [
         component: DashboardComponent
       },
       {
-        path: 'stocks',
-        loadChildren: () => import('./modules/stocks/stocks.module').then(m => m.StocksModule)
-      },
-      {
         path: 'macro',
         loadChildren: () => import('./modules/macro/macro.module').then(m => m.MacroModule)
+      },
+      {
+        path: 'quotes',
+        loadChildren: () => import('./modules/quote/quote.module').then(m => m.QuoteModule)
       }
     ]
   },

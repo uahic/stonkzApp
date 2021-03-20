@@ -104,6 +104,7 @@
     "@angular/material": "11.2.4",
     "@ngneat/hotkeys": "1.1.2",
     "@ngneat/until-destroy": "8.0.2",
+    "dayjs": "1.10.4",
     "finnhub": "1.2.1",
     "highcharts": "8.2.0",
     "highcharts-angular": "2.10.0",

@@ -5,6 +5,7 @@ import { ElectronService } from './core/services';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { HotkeysService } from '@ngneat/hotkeys';
 import { SearchOverlayService } from './modules/search/search-overlay.service';
+import { DataProviderService } from './modules/dataprovider/data-provider.service'
 
 
 @UntilDestroy()
@@ -18,7 +19,9 @@ export class AppComponent {
     private electronService: ElectronService,
     private translate: TranslateService,
     private hotkeys: HotkeysService,
-    private searchOverlay: SearchOverlayService
+    private searchOverlay: SearchOverlayService,
+    // Do not remove
+    private dataprovider: DataProviderService
   ) {
     this.translate.setDefaultLang('en');
 
@@ -28,10 +31,14 @@ export class AppComponent {
       // console.log('Run in browser');
     }
 
+    // TODO outsource the register-business
+
+    // Shortcuts
     this.hotkeys.addShortcut({ keys: 'meta.p' })
       .pipe(untilDestroyed(this))
       .subscribe(() => {
         this.searchOverlay.showSearchBar();
       });
+
   }
 }
